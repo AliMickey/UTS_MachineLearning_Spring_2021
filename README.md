@@ -1,6 +1,3 @@
-# UTS_MachineLearning_Spring_2021
-https://handbook.uts.edu.au/subjects/details/31005.html
-
 # Setup
 If on MacOS/Linux, execute `bash run.sh` and it should set everything up. 
 If there are any issues or you are using Windows, follow the manual steps below.
