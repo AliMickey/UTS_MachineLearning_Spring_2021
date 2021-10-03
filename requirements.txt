@@ -1,0 +1,7 @@
+pydotplus
+sklearn
+scikit-learn==1.0
+numpy
+six
+pandas
+matplotlib
