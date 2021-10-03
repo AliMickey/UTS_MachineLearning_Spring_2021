@@ -5,3 +5,4 @@ numpy
 six
 pandas
 matplotlib
+graphviz
