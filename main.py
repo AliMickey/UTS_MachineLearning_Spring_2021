@@ -3,7 +3,7 @@ from graphviz import Source
 from sklearn.model_selection import train_test_split
 from sklearn.datasets import load_iris
 from sklearn.tree import DecisionTreeClassifier, export_graphviz
-from sklearn.metrics import accuracy_score
+from sklearn.metrics import accuracy_score, confusion_matrix
 from myClassifer import myDecisionTreeClassifer
 
 # Return iris dataset formatted as data frame
@@ -31,7 +31,7 @@ def toolboxClassifer(iris):
     irisData, irisTarget, featureNames, targetNames = iris
 
     # Split into test and training as 0.3/0.7
-    dataTrain, dataTest, targetTrain, targetTest = train_test_split(irisData, irisTarget, random_state=50, test_size=0.30)
+    dataTrain, dataTest, targetTrain, targetTest = train_test_split(irisData, irisTarget, random_state=1, test_size=0.30)
 
     # Setup and run model
     model = DecisionTreeClassifier(criterion = 'entropy', min_samples_split=25)
@@ -52,7 +52,7 @@ def myClassifer(iris):
     irisData, irisTarget, featureNames, targetNames = iris
 
     # Split into test and training as 0.3/0.7
-    dataTrain, dataTest, targetTrain, targetTest = train_test_split(irisData, irisTarget, random_state=50, test_size=0.30)
+    dataTrain, dataTest, targetTrain, targetTest = train_test_split(irisData, irisTarget, random_state=1, test_size=0.30)
 
     # Setup and run model
     model = myDecisionTreeClassifer()
@@ -61,6 +61,7 @@ def myClassifer(iris):
     # Calculate accuracy
     print('Accuracy Score on train data: ', round(accuracy_score(y_true=targetTrain, y_pred=model.predict(dataTrain)),3))
     print('Accuracy Score on the test data: ', round(accuracy_score(y_true=targetTest, y_pred=model.predict(dataTest)),3))
+    print('Confusion Matrix: \n', confusion_matrix(targetTest,model.predict(dataTest)))
 
 # Visualise tree
 def exportImage(model, featureNames, targetNames):
